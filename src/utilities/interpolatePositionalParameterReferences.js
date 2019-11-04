@@ -1,0 +1,57 @@
+// @flow
+
+import {
+  InvalidInputError,
+  createSqlTokenSqlFragment,
+  isSqlToken,
+} from 'slonik';
+import type {
+  PositionalParameterValuesType,
+} from '../types';
+
+/**
+ * @see https://github.com/mysqljs/sqlstring/blob/f946198800a8d7f198fcf98d8bb80620595d01ec/lib/SqlString.js#L73
+ */
+export default (
+  inputSql: string,
+  inputValues: PositionalParameterValuesType = [],
+) => {
+  const resultValues = [];
+
+  const bindingNames = (inputSql.match(/\$(\d+)/g) || [])
+    .map((match) => {
+      return parseInt(match.slice(1), 10);
+    })
+    .sort();
+
+  if (bindingNames[bindingNames.length - 1] > inputValues.length) {
+    throw new InvalidInputError('The greatest parameter position is greater than the number of parameter values.');
+  }
+
+  if (bindingNames.length > 0 && bindingNames[0] !== 1) {
+    throw new InvalidInputError('Parameter position must start at 1.');
+  }
+
+  const resultSql = inputSql.replace(/\$(\d+)/g, (match, g1) => {
+    const parameterPosition = parseInt(g1, 10);
+    const boundValue = inputValues[parameterPosition - 1];
+
+    if (isSqlToken(boundValue)) {
+      // $FlowFixMe
+      const sqlFragment = createSqlTokenSqlFragment(boundValue, resultValues.length);
+
+      resultValues.push(...sqlFragment.values);
+
+      return sqlFragment.sql;
+    } else {
+      resultValues.push(inputValues[parameterPosition - 1]);
+
+      return '$' + resultValues.length;
+    }
+  });
+
+  return {
+    sql: resultSql,
+    values: resultValues,
+  };
+};
