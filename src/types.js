@@ -6,7 +6,7 @@ import type {
 
 export type NamedParameterValuesType = {
   [key: string]: ValueExpressionType,
-  ...,
+  ...
 };
 
 export type PositionalParameterValuesType = $ReadOnlyArray<ValueExpressionType>;
