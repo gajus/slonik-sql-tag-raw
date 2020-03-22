@@ -5,6 +5,7 @@
 [![NPM version](http://img.shields.io/npm/v/slonik-sql-tag-raw.svg?style=flat-square)](https://www.npmjs.org/package/slonik-sql-tag-raw)
 [![Canonical Code Style](https://img.shields.io/badge/code%20style-canonical-blue.svg?style=flat-square)](https://github.com/gajus/canonical)
 [![Twitter Follow](https://img.shields.io/twitter/follow/kuizinas.svg?style=social&label=Follow)](https://twitter.com/kuizinas)
+[![GitSpo Mentions](https://gitspo.com/badges/mentions/gajus/slonik-sql-tag-raw?style=flat-square)](https://gitspo.com/gajus/slonik-sql-tag-raw)
 
 [Slonik](https://github.com/gajus/slonik) SQL tag for constructing dynamic queries.
 
