@@ -11,7 +11,8 @@ import {
 test('does not error when placeholders are absent', (t) => {
   const sqlFragment = interpolateNamedParameterReferences('SELECT 1', {});
 
-  t.assert(sqlFragment.sql === 'SELECT 1');
+  t.is(sqlFragment.sql, 'SELECT 1');
+
   t.deepEqual(sqlFragment.values, []);
 });
 
@@ -20,7 +21,8 @@ test('interpolates a named parameter reference', (t) => {
     foo: 'FOO',
   });
 
-  t.assert(sqlFragment.sql === 'SELECT $1');
+  t.is(sqlFragment.sql, 'SELECT $1');
+
   t.deepEqual(sqlFragment.values, [
     'FOO',
   ]);
@@ -32,7 +34,8 @@ test('interpolates multiple named parameter references', (t) => {
     foo: 'FOO',
   });
 
-  t.assert(sqlFragment.sql === 'SELECT $1, $2');
+  t.is(sqlFragment.sql, 'SELECT $1, $2');
+
   t.deepEqual(sqlFragment.values, [
     'FOO',
     'BAR',
@@ -44,7 +47,8 @@ test('interpolates multiple named parameter references (same name)', (t) => {
     foo: 'FOO',
   });
 
-  t.assert(sqlFragment.sql === 'SELECT $1, $2');
+  t.is(sqlFragment.sql, 'SELECT $1, $2');
+
   t.deepEqual(sqlFragment.values, [
     'FOO',
     'FOO',
@@ -56,18 +60,21 @@ test('interpolates SQL token', (t) => {
     foo: sql`${'foo'}`,
   });
 
-  t.assert(sqlFragment.sql === 'SELECT $1');
+  t.is(sqlFragment.sql, 'SELECT $1');
+
   t.deepEqual(sqlFragment.values, [
     'foo',
   ]);
 });
 
 test('throws if named parameter references does not have a matching value', (t) => {
-  t.throws((): void => {
+  t.throws(() => {
     interpolateNamedParameterReferences('SELECT :foo, :bar', {
       foo: 'FOO',
     });
-  }, 'Named parameter reference does not have a matching value.');
+  }, {
+    message: 'Named parameter reference does not have a matching value.',
+  });
 });
 
 test('throws if values object contains property names not present as named parameter references in the query', (t) => {
@@ -76,5 +83,7 @@ test('throws if values object contains property names not present as named param
       bar: 'BAR',
       foo: 'FOO',
     });
-  }, 'Values object contains value(s) not present as named parameter references in the query.');
+  }, {
+    message: 'Values object contains value(s) not present as named parameter references in the query.',
+  });
 });

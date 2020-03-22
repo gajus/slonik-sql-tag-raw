@@ -5,17 +5,16 @@
     "url": "http://gajus.com"
   },
   "ava": {
+    "babel": {
+      "compileAsTests": [
+        "test/helpers/**/*"
+      ]
+    },
     "files": [
-      "test/**/*"
-    ],
-    "helpers": [
-      "test/helpers/**/*"
+      "test/slonik-sql-tag-raw/**/*"
     ],
     "require": [
       "@babel/register"
-    ],
-    "sources": [
-      "src/**/*"
     ]
   },
   "dependencies": {
@@ -26,6 +25,7 @@
   },
   "description": "Slonik SQL tag for constructing dynamic queries.",
   "devDependencies": {
+    "@ava/babel": "^1.0.1",
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/plugin-transform-flow-strip-types": "^7.9.0",
