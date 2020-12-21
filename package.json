@@ -20,8 +20,10 @@
   "dependencies": {
     "lodash": "^4.17.15",
     "roarr": "^2.15.2",
-    "serialize-error": "^6.0.0",
-    "slonik": "^22.4.4"
+    "serialize-error": "^6.0.0"
+  },
+  "peerDependencies": {
+    "slonik": ">=22.4.4"
   },
   "description": "Slonik SQL tag for constructing dynamic queries.",
   "devDependencies": {
@@ -44,7 +46,8 @@
     "inline-loops.macro": "^1.2.2",
     "nyc": "^15.0.0",
     "semantic-release": "^17.0.4",
-    "sinon": "^9.0.1"
+    "sinon": "^9.0.1",
+    "slonik": "^22.4.4"
   },
   "engines": {
     "node": ">=10.0"
