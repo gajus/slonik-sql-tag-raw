@@ -47,7 +47,8 @@
     "nyc": "^15.0.0",
     "semantic-release": "^17.0.4",
     "sinon": "^9.0.1",
-    "slonik": "^22.4.4"
+    "slonik": "^22.4.4",
+    "eslint-plugin-flowtype": "^5.2.0"
   },
   "engines": {
     "node": ">=10.0"
