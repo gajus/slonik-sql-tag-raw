@@ -20,7 +20,7 @@ export default (
 
   const bindingNames = (inputSql.match(/\$(\d+)/g) || [])
     .map((match) => {
-      return parseInt(match.slice(1), 10);
+      return Number.parseInt(match.slice(1), 10);
     })
     .sort();
 
@@ -33,7 +33,7 @@ export default (
   }
 
   const resultSql = inputSql.replace(/\$(\d+)/g, (match, g1) => {
-    const parameterPosition = parseInt(g1, 10);
+    const parameterPosition = Number.parseInt(g1, 10);
     const boundValue = inputValues[parameterPosition - 1];
 
     if (isSqlToken(boundValue)) {

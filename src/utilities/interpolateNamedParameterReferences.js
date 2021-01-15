@@ -19,7 +19,7 @@ const log = Logger.child({
 /**
  * @see https://regex101.com/r/KrEe8i/2
  */
-const namedPlaceholderRegex = /[\s,(]:([a-z_]+)/g;
+const namedPlaceholderRegex = /[\s(,]:([_a-z]+)/g;
 
 /**
  * @see https://github.com/mysqljs/sqlstring/blob/f946198800a8d7f198fcf98d8bb80620595d01ec/lib/SqlString.js#L73
