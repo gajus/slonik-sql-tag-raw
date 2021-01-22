@@ -1,12 +1,14 @@
-// @flow
-
+import type {
+  SqlSqlTokenType,
+  ValueExpressionType,
+} from 'slonik';
 import {
   InvalidInputError,
   createSqlTokenSqlFragment,
   isSqlToken,
 } from 'slonik';
 import type {
-  PositionalParameterValuesType,
+  PrimitiveValueExpressionType,
 } from '../types';
 
 /**
@@ -14,11 +16,11 @@ import type {
  */
 export default (
   inputSql: string,
-  inputValues: PositionalParameterValuesType = [],
-) => {
-  const resultValues = [];
+  inputValues: ReadonlyArray<ValueExpressionType> = [],
+): SqlSqlTokenType => {
+  const resultValues = [] as PrimitiveValueExpressionType[];
 
-  const bindingNames = (inputSql.match(/\$(\d+)/g) || [])
+  const bindingNames = (inputSql.match(/\$(\d+)/g) ?? [])
     .map((match) => {
       return Number.parseInt(match.slice(1), 10);
     })
@@ -37,21 +39,21 @@ export default (
     const boundValue = inputValues[parameterPosition - 1];
 
     if (isSqlToken(boundValue)) {
-      // $FlowFixMe
       const sqlFragment = createSqlTokenSqlFragment(boundValue, resultValues.length);
 
       resultValues.push(...sqlFragment.values);
 
       return sqlFragment.sql;
     } else {
-      resultValues.push(inputValues[parameterPosition - 1]);
+      resultValues.push(inputValues[parameterPosition - 1] as PrimitiveValueExpressionType);
 
-      return '$' + resultValues.length;
+      return `$${resultValues.length}`;
     }
   });
 
   return {
     sql: resultSql,
-    values: resultValues,
+    type: 'SLONIK_TOKEN_SQL',
+    values: Object.freeze(resultValues),
   };
 };
