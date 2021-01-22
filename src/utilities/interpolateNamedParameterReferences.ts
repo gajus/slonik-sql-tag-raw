@@ -1,11 +1,12 @@
-// @flow
-
-import {
-  InvalidInputError,
-} from 'slonik';
 import {
   difference,
 } from 'lodash';
+import type {
+  SqlSqlTokenType,
+} from 'slonik';
+import {
+  InvalidInputError,
+} from 'slonik';
 import Logger from '../Logger';
 import type {
   NamedParameterValuesType,
@@ -27,7 +28,7 @@ const namedPlaceholderRegex = /[\s(,]:([_a-z]+)/g;
 export default (
   inputSql: string,
   inputValues: NamedParameterValuesType = {},
-) => {
+): SqlSqlTokenType => {
   const resultValues = [];
   const parameterNames = Object.keys(inputValues);
 
@@ -37,7 +38,7 @@ export default (
     resultValues.push(parameterValue);
   }
 
-  const usedParamterNames = [];
+  const usedParamterNames = [] as string[];
 
   const resultSql = inputSql.replace(namedPlaceholderRegex, (match, g1) => {
     if (!parameterNames.includes(g1)) {
@@ -48,7 +49,7 @@ export default (
 
     const parameterIndex = parameterNames.indexOf(g1) + 1;
 
-    return match.slice(0, -g1.length - 1) + '$' + parameterIndex;
+    return match.slice(0, -g1.length - 1) + `$${parameterIndex}`;
   });
 
   const unusedParameterNames = difference(parameterNames, usedParamterNames);

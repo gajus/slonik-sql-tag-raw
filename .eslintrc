@@ -1,7 +1,66 @@
 {
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "extends": [
     "canonical",
-    "canonical/flowtype"
+    "canonical/typescript"
   ],
-  "root": true
+  "ignorePatterns": [
+    "dist",
+    "node_modules",
+    "coverage"
+  ],
+  "overrides": [
+    {
+      "files": "*.d.ts",
+      "rules": {
+        "filenames/match-regex": 0,
+        "import/no-default-export": 0,
+        "import/unambiguous": 0
+      }
+    }
+  ],
+  "root": true,
+  "rules": {
+    "@typescript-eslint/ban-ts-comment": 0,
+    "@typescript-eslint/no-empty-function": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-non-null-assertion": 1,
+    "@typescript-eslint/no-unused-vars": 1,
+    "@typescript-eslint/prefer-ts-expect-error": 1,
+    "@typescript-eslint/array-type": 0,
+    "@typescript-eslint/require-array-sort-compare": 0,
+    "import/no-cycle": 0,
+    "import/no-default-export": 0,
+    "import/no-unresolved": 0,
+    "linebreak-style": 0,
+    "no-continue": 0,
+    "no-extra-parens": 0,
+    "no-restricted-syntax": 0,
+    "no-undef": 0,
+    "no-unused-expressions": [
+      2,
+      {
+        "allowTaggedTemplates": true
+      }
+    ],
+    "no-unused-vars": 0,
+    "object-curly-newline": [
+      2,
+      {
+        "ExportDeclaration": {
+          "minProperties": 1,
+          "multiline": true
+        },
+        "ImportDeclaration": {
+          "minProperties": 1,
+          "multiline": true
+        }
+      }
+    ],
+    "require-await": 0,
+    "unicorn/numeric-separators-style": 0,
+    "unicorn/prevent-abbreviations": 0
+  }
 }

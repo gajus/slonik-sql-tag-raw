@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "noEmit": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "strict": true,
+    "target": "esnext"
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "coverage",
+    ".nyc_output",
+    ".git"
+  ]
+}
