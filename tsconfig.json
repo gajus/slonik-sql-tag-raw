@@ -7,7 +7,7 @@
     "rootDir": ".",
     "sourceMap": true,
     "strict": true,
-    "target": "esnext"
+    "target": "ES2018"
   },
   "exclude": [
     "node_modules",
