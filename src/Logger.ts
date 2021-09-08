@@ -1,5 +1,7 @@
-import Logger from 'roarr';
+import {
+  Roarr,
+} from 'roarr';
 
-export default Logger.child({
+export default Roarr.child({
   package: 'slonik-sql-tag-raw',
 });
