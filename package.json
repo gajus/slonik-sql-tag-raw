@@ -27,6 +27,8 @@
   "description": "Slonik SQL tag for constructing dynamic queries.",
   "devDependencies": {
     "@types/lodash": "^4.14.168",
+    "@types/node": "^16.9.0",
+    "@types/pg": "^8.6.1",
     "@types/sinon": "^9.0.10",
     "ava": "^3.15.0",
     "coveralls": "^3.1.0",
