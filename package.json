@@ -21,7 +21,7 @@
     "serialize-error": "^8.0.0"
   },
   "peerDependencies": {
-    "roarr": ">=^7.0.3",
+    "roarr": ">=7.0.3",
     "slonik": ">=24.1.0"
   },
   "description": "Slonik SQL tag for constructing dynamic queries.",
