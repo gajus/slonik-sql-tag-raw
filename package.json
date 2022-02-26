@@ -22,7 +22,7 @@
   },
   "peerDependencies": {
     "roarr": ">=7.0.3",
-    "slonik": ">=24.1.0"
+    "slonik": ">=27.0.0"
   },
   "description": "Slonik SQL tag for constructing dynamic queries.",
   "devDependencies": {
@@ -38,7 +38,7 @@
     "nyc": "^15.1.0",
     "semantic-release": "^17.3.6",
     "sinon": "^9.0.1",
-    "slonik": "^24.1.0",
+    "slonik": "^27.0.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   },
