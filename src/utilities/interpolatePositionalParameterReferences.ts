@@ -8,7 +8,7 @@ import {
   isSqlToken,
 } from 'slonik';
 import type {
-  PrimitiveValueExpressionType,
+  PrimitiveValueExpression,
 } from '../types';
 
 /**
@@ -18,7 +18,7 @@ export default (
   inputSql: string,
   inputValues: ReadonlyArray<ValueExpression> = [],
 ): SqlSqlToken => {
-  const resultValues = [] as PrimitiveValueExpressionType[];
+  const resultValues = [] as PrimitiveValueExpression[];
 
   const bindingNames = (inputSql.match(/\$(\d+)/g) ?? [])
     .map((match) => {
@@ -45,7 +45,7 @@ export default (
 
       return sqlFragment.sql;
     } else {
-      resultValues.push(inputValues[parameterPosition - 1] as PrimitiveValueExpressionType);
+      resultValues.push(inputValues[parameterPosition - 1] as PrimitiveValueExpression);
 
       return `$${resultValues.length}`;
     }

@@ -9,7 +9,7 @@ import {
 } from 'slonik';
 import Logger from '../Logger';
 import type {
-  NamedParameterValuesType,
+  NamedParameterValues,
 } from '../types';
 import interpolatePositionalParameterReferences from './interpolatePositionalParameterReferences';
 
@@ -27,7 +27,7 @@ const namedPlaceholderRegex = /[\s(,]:([_a-z]+)/g;
  */
 export default (
   inputSql: string,
-  inputValues: NamedParameterValuesType = {},
+  inputValues: NamedParameterValues = {},
 ): SqlSqlToken => {
   const resultValues = [];
   const parameterNames = Object.keys(inputValues);
