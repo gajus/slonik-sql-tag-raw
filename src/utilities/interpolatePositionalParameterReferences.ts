@@ -1,6 +1,6 @@
 import type {
-  SqlSqlTokenType,
-  ValueExpressionType,
+  SqlSqlToken,
+  ValueExpression,
 } from 'slonik';
 import {
   InvalidInputError,
@@ -16,8 +16,8 @@ import type {
  */
 export default (
   inputSql: string,
-  inputValues: ReadonlyArray<ValueExpressionType> = [],
-): SqlSqlTokenType => {
+  inputValues: ReadonlyArray<ValueExpression> = [],
+): SqlSqlToken => {
   const resultValues = [] as PrimitiveValueExpressionType[];
 
   const bindingNames = (inputSql.match(/\$(\d+)/g) ?? [])
