@@ -1,10 +1,10 @@
 import type {
-  ValueExpressionType,
+  ValueExpression,
   createSqlTokenSqlFragment,
 } from 'slonik';
 
-export type NamedParameterValuesType = {
-  [key: string]: ValueExpressionType,
+export type NamedParameterValues = {
+  [key: string]: ValueExpression,
 };
 
-export type PrimitiveValueExpressionType = ReturnType<typeof createSqlTokenSqlFragment>['values'][number];
+export type PrimitiveValueExpression = ReturnType<typeof createSqlTokenSqlFragment>['values'][number];

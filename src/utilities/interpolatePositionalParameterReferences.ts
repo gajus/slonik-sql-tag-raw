@@ -1,6 +1,6 @@
 import type {
-  SqlSqlTokenType,
-  ValueExpressionType,
+  SqlSqlToken,
+  ValueExpression,
 } from 'slonik';
 import {
   InvalidInputError,
@@ -8,7 +8,7 @@ import {
   isSqlToken,
 } from 'slonik';
 import type {
-  PrimitiveValueExpressionType,
+  PrimitiveValueExpression,
 } from '../types';
 
 /**
@@ -16,9 +16,9 @@ import type {
  */
 export default (
   inputSql: string,
-  inputValues: ReadonlyArray<ValueExpressionType> = [],
-): SqlSqlTokenType => {
-  const resultValues = [] as PrimitiveValueExpressionType[];
+  inputValues: ReadonlyArray<ValueExpression> = [],
+): SqlSqlToken => {
+  const resultValues = [] as PrimitiveValueExpression[];
 
   const bindingNames = (inputSql.match(/\$(\d+)/g) ?? [])
     .map((match) => {
@@ -45,7 +45,7 @@ export default (
 
       return sqlFragment.sql;
     } else {
-      resultValues.push(inputValues[parameterPosition - 1] as PrimitiveValueExpressionType);
+      resultValues.push(inputValues[parameterPosition - 1] as PrimitiveValueExpression);
 
       return `$${resultValues.length}`;
     }

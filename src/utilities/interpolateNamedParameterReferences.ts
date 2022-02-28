@@ -2,14 +2,14 @@ import {
   difference,
 } from 'lodash';
 import type {
-  SqlSqlTokenType,
+  SqlSqlToken,
 } from 'slonik';
 import {
   InvalidInputError,
 } from 'slonik';
 import Logger from '../Logger';
 import type {
-  NamedParameterValuesType,
+  NamedParameterValues,
 } from '../types';
 import interpolatePositionalParameterReferences from './interpolatePositionalParameterReferences';
 
@@ -27,8 +27,8 @@ const namedPlaceholderRegex = /[\s(,]:([_a-z]+)/g;
  */
 export default (
   inputSql: string,
-  inputValues: NamedParameterValuesType = {},
-): SqlSqlTokenType => {
+  inputValues: NamedParameterValues = {},
+): SqlSqlToken => {
   const resultValues = [];
   const parameterNames = Object.keys(inputValues);
 

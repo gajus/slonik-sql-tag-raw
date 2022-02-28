@@ -1,9 +1,9 @@
 import type {
-  SqlSqlTokenType,
-  ValueExpressionType,
+  SqlSqlToken,
+  ValueExpression,
 } from 'slonik';
 import type {
-  NamedParameterValuesType,
+  NamedParameterValues,
 } from '../types';
 import {
   interpolatePositionalParameterReferences,
@@ -12,11 +12,11 @@ import {
 
 export default (
   sql: string,
-  values?: NamedParameterValuesType | ReadonlyArray<ValueExpressionType>,
-): SqlSqlTokenType => {
+  values?: NamedParameterValues | ReadonlyArray<ValueExpression>,
+): SqlSqlToken => {
   if (Array.isArray(values)) {
-    return interpolatePositionalParameterReferences(sql, values as ValueExpressionType[]);
+    return interpolatePositionalParameterReferences(sql, values as ValueExpression[]);
   } else {
-    return interpolateNamedParameterReferences(sql, values as NamedParameterValuesType);
+    return interpolateNamedParameterReferences(sql, values as NamedParameterValues);
   }
 };
