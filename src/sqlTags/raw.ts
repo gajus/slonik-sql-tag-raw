@@ -1,9 +1,9 @@
-import type {
-  FragmentSqlToken,
-  ValueExpression,
+import {
+  type FragmentSqlToken,
+  type ValueExpression,
 } from 'slonik';
-import type {
-  NamedParameterValues,
+import {
+  type NamedParameterValues,
 } from '../types';
 import {
   interpolatePositionalParameterReferences,

@@ -1,15 +1,13 @@
 import {
   difference,
 } from 'lodash';
-import type {
-  FragmentSqlToken,
-} from 'slonik';
 import {
+  type FragmentSqlToken,
   InvalidInputError,
 } from 'slonik';
 import Logger from '../Logger';
-import type {
-  NamedParameterValues,
+import {
+  type NamedParameterValues,
 } from '../types';
 import interpolatePositionalParameterReferences from './interpolatePositionalParameterReferences';
 
@@ -20,7 +18,7 @@ const log = Logger.child({
 /**
  * @see https://regex101.com/r/KrEe8i/2
  */
-const namedPlaceholderRegex = /[\s(,]:([_a-z]+)/g;
+const namedPlaceholderRegex = /[\s(,]:([_a-z]+)/gu;
 
 /**
  * @see https://github.com/mysqljs/sqlstring/blob/f946198800a8d7f198fcf98d8bb80620595d01ec/lib/SqlString.js#L73

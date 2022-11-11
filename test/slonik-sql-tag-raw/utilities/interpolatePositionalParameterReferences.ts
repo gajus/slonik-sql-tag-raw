@@ -21,7 +21,9 @@ test('creates a tuple with a single positional parameter', (t) => {
 
   t.is(sqlFragment.sql, '($1)');
 
-  t.deepEqual(sqlFragment.values, ['foo']);
+  t.deepEqual(sqlFragment.values, [
+    'foo',
+  ]);
 });
 
 test('interpolates SQL token', (t) => {
@@ -31,7 +33,9 @@ test('interpolates SQL token', (t) => {
 
   t.is(sqlFragment.sql, 'to_timestamp($1)');
 
-  t.deepEqual(sqlFragment.values, ['foo']);
+  t.deepEqual(sqlFragment.values, [
+    'foo',
+  ]);
 });
 
 test('throws an error if the greatest parameter position is greater than the number of parameter values', (t) => {

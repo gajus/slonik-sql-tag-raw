@@ -1,6 +1,6 @@
-import type {
-  ValueExpression,
-  createSqlTokenSqlFragment,
+import {
+  type ValueExpression,
+  type createSqlTokenSqlFragment,
 } from 'slonik';
 
 export type NamedParameterValues = {

@@ -1,14 +1,12 @@
-import type {
-  FragmentSqlToken,
-  ValueExpression,
-} from 'slonik';
 import {
+  type FragmentSqlToken,
+  type ValueExpression,
   InvalidInputError,
   createSqlTokenSqlFragment,
   isSqlToken,
 } from 'slonik';
-import type {
-  PrimitiveValueExpression,
+import {
+  type PrimitiveValueExpression,
 } from '../types';
 
 /**
@@ -20,7 +18,7 @@ export default (
 ): FragmentSqlToken => {
   const resultValues = [] as PrimitiveValueExpression[];
 
-  const bindingNames = (inputSql.match(/\$(\d+)/g) ?? [])
+  const bindingNames = (inputSql.match(/\$(\d+)/ug) ?? [])
     .map((match) => {
       return Number.parseInt(match.slice(1), 10);
     })
@@ -34,7 +32,7 @@ export default (
     throw new InvalidInputError('Parameter position must start at 1.');
   }
 
-  const resultSql = inputSql.replace(/\$(\d+)/g, (match, g1) => {
+  const resultSql = inputSql.replace(/\$(\d+)/ug, (match, g1) => {
     const parameterPosition = Number.parseInt(g1, 10);
     const boundValue = inputValues[parameterPosition - 1];
 
