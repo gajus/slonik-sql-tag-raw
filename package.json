@@ -36,7 +36,7 @@
     "eslint-config-canonical": "^37.0.3",
     "husky": "^4.3.8",
     "nyc": "^15.1.0",
-    "semantic-release": "^17.3.6",
+    "semantic-release": "^19.0.3",
     "sinon": "^9.0.1",
     "slonik": "^33.0.2",
     "ts-node": "^9.1.1",
