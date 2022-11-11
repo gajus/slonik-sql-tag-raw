@@ -10,7 +10,7 @@ import {
   interpolateNamedParameterReferences,
 } from '../utilities';
 
-export default (
+export const raw = (
   sql: string,
   values?: NamedParameterValues | ReadonlyArray<ValueExpression>,
 ): FragmentSqlToken => {

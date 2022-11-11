@@ -1,6 +1,6 @@
 export {
-  default as interpolateNamedParameterReferences,
+  interpolateNamedParameterReferences,
 } from './interpolateNamedParameterReferences';
 export {
-  default as interpolatePositionalParameterReferences,
+  interpolatePositionalParameterReferences,
 } from './interpolatePositionalParameterReferences';

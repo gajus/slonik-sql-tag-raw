@@ -5,11 +5,15 @@ import {
   type FragmentSqlToken,
   InvalidInputError,
 } from 'slonik';
-import Logger from '../Logger';
+import {
+  Logger,
+} from '../Logger';
 import {
   type NamedParameterValues,
 } from '../types';
-import interpolatePositionalParameterReferences from './interpolatePositionalParameterReferences';
+import {
+  interpolatePositionalParameterReferences,
+} from './interpolatePositionalParameterReferences';
 
 const log = Logger.child({
   namespace: 'interpolateNamedParameterReferences',
@@ -23,7 +27,7 @@ const namedPlaceholderRegex = /[\s(,]:([_a-z]+)/gu;
 /**
  * @see https://github.com/mysqljs/sqlstring/blob/f946198800a8d7f198fcf98d8bb80620595d01ec/lib/SqlString.js#L73
  */
-export default (
+export const interpolateNamedParameterReferences = (
   inputSql: string,
   inputValues: NamedParameterValues = {},
 ): FragmentSqlToken => {

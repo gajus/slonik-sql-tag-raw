@@ -12,7 +12,7 @@ import {
 /**
  * @see https://github.com/mysqljs/sqlstring/blob/f946198800a8d7f198fcf98d8bb80620595d01ec/lib/SqlString.js#L73
  */
-export default (
+export const interpolatePositionalParameterReferences = (
   inputSql: string,
   inputValues: ReadonlyArray<ValueExpression> = [],
 ): FragmentSqlToken => {

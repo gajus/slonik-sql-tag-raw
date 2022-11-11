@@ -1,3 +1,3 @@
 export {
-  default as raw,
+  raw,
 } from './raw';
