@@ -30,7 +30,7 @@
     "@types/node": "^16.9.0",
     "@types/pg": "^8.6.1",
     "@types/sinon": "^9.0.10",
-    "ava": "^3.15.0",
+    "ava": "^5.0.1",
     "coveralls": "^3.1.0",
     "eslint": "^8.27.0",
     "eslint-config-canonical": "^37.0.3",
