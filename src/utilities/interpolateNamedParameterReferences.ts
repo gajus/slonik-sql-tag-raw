@@ -36,21 +36,21 @@ export default (
     resultValues.push(parameterValue);
   }
 
-  const usedParamterNames = [] as string[];
+  const usedParameterNames = [] as string[];
 
   const resultSql = inputSql.replace(namedPlaceholderRegex, (match, g1) => {
     if (!parameterNames.includes(g1)) {
       throw new InvalidInputError('Named parameter reference does not have a matching value.');
     }
 
-    usedParamterNames.push(g1);
+    usedParameterNames.push(g1);
 
     const parameterIndex = parameterNames.indexOf(g1) + 1;
 
     return match.slice(0, -g1.length - 1) + `$${parameterIndex}`;
   });
 
-  const unusedParameterNames = difference(parameterNames, usedParamterNames);
+  const unusedParameterNames = difference(parameterNames, usedParameterNames);
 
   if (unusedParameterNames.length > 0) {
     log.warn({
