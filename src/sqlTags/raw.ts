@@ -1,5 +1,5 @@
 import type {
-  SqlSqlToken,
+  FragmentSqlToken,
   ValueExpression,
 } from 'slonik';
 import type {
@@ -13,7 +13,7 @@ import {
 export default (
   sql: string,
   values?: NamedParameterValues | ReadonlyArray<ValueExpression>,
-): SqlSqlToken => {
+): FragmentSqlToken => {
   if (Array.isArray(values)) {
     return interpolatePositionalParameterReferences(sql, values as ValueExpression[]);
   } else {

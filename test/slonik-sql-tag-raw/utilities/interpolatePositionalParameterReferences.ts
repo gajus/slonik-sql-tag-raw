@@ -26,7 +26,7 @@ test('creates a tuple with a single positional parameter', (t) => {
 
 test('interpolates SQL token', (t) => {
   const sqlFragment = interpolatePositionalParameterReferences('$1', [
-    sql`to_timestamp(${'foo'})`,
+    sql.fragment`to_timestamp(${'foo'})`,
   ]);
 
   t.is(sqlFragment.sql, 'to_timestamp($1)');

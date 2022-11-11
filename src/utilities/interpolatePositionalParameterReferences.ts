@@ -1,5 +1,5 @@
 import type {
-  SqlSqlToken,
+  FragmentSqlToken,
   ValueExpression,
 } from 'slonik';
 import {
@@ -17,7 +17,7 @@ import type {
 export default (
   inputSql: string,
   inputValues: ReadonlyArray<ValueExpression> = [],
-): SqlSqlToken => {
+): FragmentSqlToken => {
   const resultValues = [] as PrimitiveValueExpression[];
 
   const bindingNames = (inputSql.match(/\$(\d+)/g) ?? [])
@@ -53,7 +53,7 @@ export default (
 
   return {
     sql: resultSql,
-    type: 'SLONIK_TOKEN_SQL',
+    type: 'SLONIK_TOKEN_FRAGMENT',
     values: Object.freeze(resultValues),
   };
 };

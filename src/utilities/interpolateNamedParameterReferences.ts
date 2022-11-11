@@ -2,7 +2,7 @@ import {
   difference,
 } from 'lodash';
 import type {
-  SqlSqlToken,
+  FragmentSqlToken,
 } from 'slonik';
 import {
   InvalidInputError,
@@ -28,7 +28,7 @@ const namedPlaceholderRegex = /[\s(,]:([_a-z]+)/g;
 export default (
   inputSql: string,
   inputValues: NamedParameterValues = {},
-): SqlSqlToken => {
+): FragmentSqlToken => {
   const resultValues = [];
   const parameterNames = Object.keys(inputValues);
 

@@ -55,7 +55,7 @@ test('interpolates multiple named parameter references (same name)', (t) => {
 
 test('interpolates SQL token', (t) => {
   const sqlFragment = interpolateNamedParameterReferences('SELECT :foo', {
-    foo: sql`${'foo'}`,
+    foo: sql.fragment`${'foo'}`,
   });
 
   t.is(sqlFragment.sql, 'SELECT $1');
