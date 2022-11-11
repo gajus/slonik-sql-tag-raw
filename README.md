@@ -1,6 +1,6 @@
 # slonik-sql-tag-raw
 
-[![Travis build status](http://img.shields.io/travis/gajus/slonik-sql-tag-raw/master.svg?style=flat-square)](https://travis-ci.org/gajus/slonik-sql-tag-raw)
+[![Travis build status](http://img.shields.io/travis/gajus/slonik-sql-tag-raw/master.svg?style=flat-square)](https://app.travis-ci.com/github/gajus/slonik-sql-tag-raw)
 [![Coveralls](https://img.shields.io/coveralls/gajus/slonik-sql-tag-raw.svg?style=flat-square)](https://coveralls.io/github/gajus/slonik-sql-tag-raw)
 [![NPM version](http://img.shields.io/npm/v/slonik-sql-tag-raw.svg?style=flat-square)](https://www.npmjs.org/package/slonik-sql-tag-raw)
 [![Canonical Code Style](https://img.shields.io/badge/code%20style-canonical-blue.svg?style=flat-square)](https://github.com/gajus/canonical)
