@@ -8,6 +8,9 @@
 
 [Slonik](https://github.com/gajus/slonik) SQL tag for constructing dynamic queries.
 
+> [!WARNING]
+> Deprecated in favor of https://github.com/gajus/slonik monorepo.
+
 ## Warning
 
 There are no known use cases for generating queries using `raw` that aren't covered by nesting bound `sql` expressions or by one of the other existing [query building methods](#slonik-query-building). `raw` exists only as a mechanism to execute externally stored _static_ queries (e.g. queries stored in files).
